@@ -15,6 +15,5 @@ services:
       - 3000:3000
     environment:
       - POSTGRES_HOST=postgres
-      - GEMINI_API_KEY=AIzaSyDsFvZrJYGMaV0FG4AeUbDePoVC0RRL8E4
-    depends_on:
+      - GEMINI_API_KEY= <CHAVE API>
       - postgres
