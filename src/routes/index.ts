@@ -43,10 +43,22 @@ router.post("/upload", async (req, res) => {
 
       const resposta = result.response.text();
 
+      let respostaNumero = 0;
+
+      try {
+        respostaNumero = Number(resposta);
+      } catch (error) {
+        res.status(400).json({
+          error_code: "INVALID_DATA",
+          error_description: "dados inválidos",
+        });
+        return;
+      }
+
       const criarNovaLeituraResposta = {
         measure_uuid: uuidv4(),
         leitura: leitura,
-        resposta: Number(resposta),
+        resposta: respostaNumero,
         customer_code: customer_code,
         measure_type: measure_type,
       };
